@@ -12,7 +12,7 @@ import datetime
 import random
 
 
-with open('c:\\test.csv', 'w') as csvfile:
+with open('c:\\IOTDataDemo.csv', 'w') as csvfile:
     header = ['StationID', 'Date', 'DateTime', 'Day', 'Speed', 'Volume']
     writer = csv.DictWriter(csvfile, fieldnames=header, delimiter=',', lineterminator='\n') # Windows default terminator is "\r\n"
     writer.writeheader()
@@ -21,6 +21,7 @@ with open('c:\\test.csv', 'w') as csvfile:
 
     while (counter <= 86400) : # 24*60*6*10 = 8640, 10 days
         Date = start_time.strftime('%Y%m%d')
+        #DateTime = start_time.strftime('%Y-%m-%d %H:%M:%S.%f')[:23]+'+0000' #UTC TimeZone
         DateTime = start_time.strftime('%Y-%m-%dT%H:%M:%S.%f')[:23]
         Day = start_time.strftime('%w')
 
